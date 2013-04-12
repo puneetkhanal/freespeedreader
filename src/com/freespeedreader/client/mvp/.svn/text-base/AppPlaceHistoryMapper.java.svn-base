@@ -1,0 +1,14 @@
+package cc.catalysts.catcoder.client.mvp;
+
+import com.google.gwt.place.shared.PlaceHistoryMapper;
+import com.google.gwt.place.shared.WithTokenizers;
+
+import cc.catalysts.catcoder.client.places.BrowsePlace;
+import cc.catalysts.catcoder.client.places.ContestPlace;
+import cc.catalysts.catcoder.client.places.GamePlace;
+import cc.catalysts.catcoder.client.places.SettingsPlace;
+
+@WithTokenizers({ BrowsePlace.Tokenizer.class, ContestPlace.Tokenizer.class, GamePlace.Tokenizer.class, SettingsPlace.Tokenizer.class })
+public interface AppPlaceHistoryMapper extends PlaceHistoryMapper {
+
+}

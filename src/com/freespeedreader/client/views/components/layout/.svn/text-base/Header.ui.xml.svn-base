@@ -1,0 +1,56 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:c="urn:import:cc.catalysts.catcoder.client.views.components">
+	<ui:style>
+		.logo {
+			margin: 5px;
+		}
+		
+		.rightpanel {
+			width: 300px;
+			float: right;
+		}
+		
+		.login {
+			
+		}
+		
+		.userName {
+			
+		}
+		
+		.logout {
+			
+		}
+		
+		.rightTable {
+			-moz-border-radius: 5px 5px 5px 5px;
+			background-color: #EFEFEF;
+			border: 1px solid #CFCFCF;
+			margin-top: 20px;
+			padding: 0px 10px;
+			float: right;
+			margin-right: 5px;
+		}
+	</ui:style>
+	<ui:with type="cc.catalysts.catcoder.client.resources.CcResources" field="resources"/>
+	<g:HTMLPanel>
+		<g:HTMLPanel styleName="{resources.catcoderCss.ccheader}">
+			<g:HTMLPanel styleName="{style.rightpanel}">
+				<g:HorizontalPanel styleName="{style.rightTable}">
+					<c:ImageAnchor ui:field="loginButton" anchorText="Login" imageResource="{resources.logout}"></c:ImageAnchor>
+					<c:ImageAnchor ui:field="registerButton" anchorText="Register" imageResource="{resources.logout}"></c:ImageAnchor>
+					<c:ImageAnchor ui:field="userName" imageResource="{resources.user}" disableAnchor="true"></c:ImageAnchor>
+					<c:ImageAnchor ui:field="settings" imageResource="{resources.settings}" anchorText="Settings"></c:ImageAnchor>
+					<c:ImageAnchor ui:field="logoutButton" imageResource="{resources.logout}" anchorText="Logout"></c:ImageAnchor>
+				</g:HorizontalPanel>
+			</g:HTMLPanel>
+			<g:HTMLPanel>
+			  
+				<g:Image ui:field="cccLogo" resource="{resources.cccLogo}"
+					styleName="{style.logo}"></g:Image>
+					
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

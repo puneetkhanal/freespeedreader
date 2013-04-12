@@ -1,0 +1,40 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.panel {
+		background-color: #87CEFA;
+		}
+
+		.message {
+		padding: 10px;
+		font-size: 11pt;
+		}
+
+		.buttonPanel {
+		padding: 10px 20px;
+		margin: 5px;
+		}
+		.textArea{
+height: 150px;
+		width: 300px;
+		font-weight: bold;
+		font-size:15px;
+		font-name: sans-serif;
+		}
+
+
+	</ui:style>
+	<g:HTMLPanel styleName="{style.panel}">
+		<g:FlowPanel ui:field="buttonPanel">
+			<g:HTMLPanel>
+			    <g:TextArea styleName="{style.textArea}" ui:field="textArea"
+						value="Please copy and paste text here." />
+				<center>
+					<g:Button ui:field="okButton">OK</g:Button>
+					<g:Button ui:field="cancelButton">CANCEL</g:Button>
+				</center>
+			</g:HTMLPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

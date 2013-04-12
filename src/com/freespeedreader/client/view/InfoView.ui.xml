@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+		font-weight: bold;
+		}
+		.messagePanel{
+		border: 2px
+		solid;
+		padding: 10px;
+		margin: 10px;
+		}
+	</ui:style>
+	<g:HTMLPanel styleName="{style.messagePanel}">
+		<HTML>
+			<body>
+		<p class="p1" style="text-align: justify;">
+			<span style="font-size:14px;"><strong>Usage tips</strong> :- Click on the word to lookup it&#39;s meaning in&nbsp; </span> <span style="font-size: 14px;">a popup which uses library provided by&nbsp;</span> <a href="" style="font-size: 14px;">http://www.wordnik.com</a> &nbsp;or in&nbsp; <a href="http://www.vocabulary.com" style="font-size: 14px;">http://www.vocabulary.com</a> <span style="font-size: 14px;">&nbsp;which is opened in new browser tab. Alternatively, you can click &quot;ctrl+mouse click&quot; to open the word meaning in&nbsp;</span> <a href="http://www.vocabulary.com/" style="font-size: 14px;">http://www.vocabulary.com</a> <span style="font-size: 14px;">.</span></p>
+		<p class="p1" style="text-align: justify;">
+			<span style="font-size: 14px;"><strong>Speed Test Mode</strong> :- Let&#39;s you calculate you current reading speed. It&nbsp; </span> <span style="font-size: 14px;">displays result in WPM(Words Per Minute) format.</span></p>
+		<p class="p1" style="text-align: justify;">
+			<span style="font-size:14px;"><strong>Training Mode</strong>:- You can use the training mode to increase your&nbsp; </span> <span style="font-size: 14px;">reading speed. The main science behind speed&nbsp;</span> <span style="font-size: 14px;">reading is that&nbsp;</span> <span style="font-size: 14px;">you have&nbsp;</span> <span style="font-size: 14px;">to &nbsp;read group of words at once and reduce&nbsp;</span> <span style="font-size: 14px;">subvocalization (vocalizing words internally) which considerably slows down reading speed. T</span><span style="font-size: 14px;">hat means you have&nbsp;</span> <span style="font-size: 14px;">to limit your&nbsp;</span> <span style="font-size: 14px;">fixations per line to increase your&nbsp;</span> <span style="font-size: 14px;">reading speed. In&nbsp;</span> <span style="font-size: 14px;">each fixation you have to take in as much words&nbsp;</span> <span style="font-size: 14px;">as possible. This will&nbsp;</span> <span style="font-size: 14px;">enable you to&nbsp;</span> <span style="font-size: 14px;">read in high speed with even&nbsp;</span> <span style="font-size: 14px;">better comprehension. This&nbsp;</span> <span style="font-size: 14px;">app let&#39;s you choose the number of&nbsp;</span> <span style="font-size: 14px;">fixations&nbsp;</span> <span style="font-size: 14px;">per line and also the&nbsp;</span> <span style="font-size: 14px;">fixation&nbsp;</span> <span style="font-size: 14px;">interval. The less fixation interval&nbsp;</span> <span style="font-size: 14px;">means you are reading&nbsp;</span> <span style="font-size: 14px;">faster. Just experiment with the number of&nbsp;</span> <span style="font-size: 14px;">fixations, fixation&nbsp;</span> <span style="font-size: 14px;">interval,</span> <span style="font-size: 14px;">&nbsp;page width and height to&nbsp;</span> <span style="font-size: 14px;">find the comfortable&nbsp;</span> <span style="font-size: 14px;">settings. At first, as you begin to read group&nbsp;</span> <span style="font-size: 14px;">of words&nbsp;</span> <span style="font-size: 14px;">at a time and </span> in <span style="font-size: 14px;">&nbsp;less&nbsp;</span> <span style="font-size: 14px;">fixation interval, you won&#39;t comprehend much&nbsp;</span> <span style="font-size: 14px;">but with&nbsp;</span> <span style="font-size: 14px;">practice you can read more number of words in each fixation </span>and&nbsp; <span style="font-size: 14px;">comprehend better.</span></p>
+		<p class="p1" style="text-align: justify;">
+			<span style="font-size:14px;">For more about speed reading, visit:&nbsp;</span></p>
+		<ul>
+			<li class="p1" style="text-align: justify;">
+				<span style="font-size:14px;"><a href="http://speedreadingzone.com/">http://speedreadingzone.com</a> </span></li>
+			<li class="p1" style="text-align: justify;">
+				<span style="font-size:14px;"><a href="http://www.mindtools.com/speedrd.html">http://www.mindtools.com/speedrd.html</a> </span></li>
+		</ul>
+		<p class="p1" style="text-align: justify;">
+			<span style="font-size:14px;">The app is still in development phase and feel free to send comments, bugs, features, and suggestions at&nbsp; <a href="mailto:freespeedreaderappspot@gmail.com">freespeedreaderappspot@gmail.com.</a> </span></p>
+		<p class="p1" style="text-align: justify;">
+			<span style="font-size:14px;">At last, don&#39;t forget to hit like button at the top of the page &nbsp; <img alt="smiley" src="http://www.quackit.com/html/online-html-editor/ckeditor/plugins/smiley/images/regular_smile.gif" title="smiley" /> or go to <a href="https://www.facebook.com/pages/freespeedreaderappspotcom/205590222914299">facebook page</a> </span></p>
+	</body>
+		</HTML>
+	</g:HTMLPanel>
+</ui:UiBinder> 

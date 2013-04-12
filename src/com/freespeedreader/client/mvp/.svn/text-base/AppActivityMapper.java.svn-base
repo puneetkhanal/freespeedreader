@@ -1,0 +1,106 @@
+package cc.catalysts.catcoder.client.mvp;
+
+import com.google.gwt.activity.shared.Activity;
+import com.google.gwt.activity.shared.ActivityMapper;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.place.shared.Place;
+import com.google.gwt.user.client.ui.AcceptsOneWidget;
+
+import cc.catalysts.catcoder.client.activities.BrowseActivity;
+import cc.catalysts.catcoder.client.activities.ContestInfoActivity;
+import cc.catalysts.catcoder.client.activities.GameActivity;
+import cc.catalysts.catcoder.client.activities.SettingsActivity;
+import cc.catalysts.catcoder.client.places.BrowsePlace;
+import cc.catalysts.catcoder.client.places.ContestPlace;
+import cc.catalysts.catcoder.client.places.GamePlace;
+import cc.catalysts.catcoder.client.places.SettingsPlace;
+import cc.catalysts.catcoder.client.views.IClientFactory;
+import cc.catalysts.catcoder.shared.api.IContestApi;
+import cc.catalysts.catcoder.shared.api.IContestApiAsync;
+import cc.catalysts.catcoder.shared.api.IOverviewApi;
+import cc.catalysts.catcoder.shared.api.IOverviewApiAsync;
+import cc.catalysts.catcoder.shared.api.ISettingsApi;
+import cc.catalysts.catcoder.shared.api.ISettingsApiAsync;
+import cc.catalysts.cp.plugin.gwt.client.AbstractRunAsyncCallback;
+import cc.catalysts.cp.plugin.gwt.client.activity.ActivityProxy;
+
+public class AppActivityMapper implements ActivityMapper {
+
+	private final IClientFactory clientFactory;
+
+	private Activity browseActivity;
+	private Activity contestInfoActivity;
+	private Activity gameActivity;
+	private Activity settingActivity;
+
+	private final IOverviewApiAsync overviewApi;
+	private final IContestApiAsync contestApi;
+	private final ISettingsApiAsync settingApi;
+
+	public AppActivityMapper(IClientFactory clientFactory) {
+		this.clientFactory = clientFactory;
+		overviewApi = GWT.create(IOverviewApi.class);
+		contestApi = GWT.create(IContestApi.class);
+		settingApi = GWT.create(ISettingsApi.class);
+	}
+
+	@Override
+	public Activity getActivity(final Place place) {
+		if (place instanceof BrowsePlace) {
+			return new ActivityProxy() {
+				@Override
+				public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
+					GWT.runAsync(BrowseActivity.class, new AbstractRunAsyncCallback() {
+						@Override
+						public void onSuccess() {
+							browseActivity = new BrowseActivity(clientFactory, clientFactory.getBrowseView(), overviewApi, contestApi);
+							startActivity(browseActivity, panel, eventBus);
+						}
+					});
+				}
+			};
+		} else if (place instanceof ContestPlace) {
+			return new ActivityProxy() {
+
+				@Override
+				public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
+					GWT.runAsync(ContestInfoActivity.class, new AbstractRunAsyncCallback() {
+						@Override
+						public void onSuccess() {
+							contestInfoActivity = new ContestInfoActivity(((ContestPlace) place).getContestId(), clientFactory, contestApi,
+									clientFactory.getContestInfoView());
+							startActivity(contestInfoActivity, panel, eventBus);
+						}
+					});
+
+				}
+			};
+		} else if (place instanceof GamePlace) {
+			return new ActivityProxy() {
+
+				@Override
+				public void start(AcceptsOneWidget panel, EventBus eventBus) {
+					gameActivity = new GameActivity(((GamePlace) place).getContestId(), clientFactory, clientFactory.getGameView(),
+							contestApi);
+					startActivity(gameActivity, panel, eventBus);
+
+				}
+			};
+		} else if (place instanceof SettingsPlace) {
+			return new ActivityProxy() {
+
+				@Override
+				public void start(AcceptsOneWidget panel, EventBus eventBus) {
+					settingActivity = new SettingsActivity(clientFactory.getSettingsView(), settingApi);
+					startActivity(settingActivity, panel, eventBus);
+				}
+			};
+		}
+		return null;
+	}
+
+	public IOverviewApiAsync getOverviewApi() {
+		return overviewApi;
+	}
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:e="urn:import:com.google.code.gwteyecandy"
+	xmlns:view="urn:import:com.freespeedreader.client.view">
+	<ui:style>
+		.important {
+		font-weight: bold;
+		height: 20px;
+		}
+		.fontPanel{
+		padding: 5px;
+		}
+		.pagePanel{
+		padding: 5px;
+		}
+		.trainingModePanel{
+		padding:
+		5px;
+		}
+		.leftPadding{
+		padding-left:5px;
+		}
+
+	</ui:style>
+	<ui:with
+		type="com.freespeedreader.client.resources.FreespeedreaderResources"
+		field="resources"></ui:with>
+	<g:FlowPanel>
+		<g:HorizontalPanel>
+			<e:Toolbar>
+				<e:ToggleButton ui:field="canvasSettings"
+					groupPosition="RIGHT" icon="{resources.iconSettings}">Page</e:ToggleButton>
+				<e:ToggleButton ui:field="fontSettings"
+					groupPosition="RIGHT" icon="{resources.iconSettings}">Font</e:ToggleButton>
+				<e:ToggleButton ui:field="trainingModeSettings" icon="{resources.iconSettings}">Training
+					Mode</e:ToggleButton>
+				<e:Button ui:field="pasteText" icon="{resources.iconPaste}"
+					text="Paste Text"></e:Button>
+			</e:Toolbar>
+		</g:HorizontalPanel>
+		<g:DeckPanel ui:field="deckPanel">
+			<g:FlowPanel>
+				<g:HorizontalPanel styleName="{style.pagePanel}">
+					<g:Label>Width:</g:Label>
+					<e:Button ui:field="widthIncrease" groupPosition="LEFT"
+						icon="{resources.iconPlus}"></e:Button>
+					<e:Button ui:field="widthDecrease" groupPosition="RIGHT"
+						icon="{resources.iconMinus}"></e:Button>
+					<g:Label styleName="{style.leftPadding}">Height:</g:Label>
+					<e:Button ui:field="heightIncrease" groupPosition="LEFT"
+						icon="{resources.iconPlus}"></e:Button>
+					<e:Button ui:field="heightDecrease" groupPosition="RIGHT"
+						icon="{resources.iconMinus}"></e:Button>
+
+					<g:Label styleName="{style.leftPadding}">Background: </g:Label>
+					<e:ColorInput ui:field="backgroundColor"></e:ColorInput>
+				</g:HorizontalPanel>
+			</g:FlowPanel>
+			<g:FlowPanel>
+				<g:HorizontalPanel styleName="{style.fontPanel}">
+					<e:ToggleButton ui:field="font" icon="{resources.iconDownArrow}"
+						iconAlign="RIGHT">Font</e:ToggleButton>
+					<g:Label styleName="{style.leftPadding}">Size: </g:Label>
+					<view:FontSize ui:field="fontSize">
+					</view:FontSize>
+					<g:Label styleName="{style.leftPadding}">Color: </g:Label>
+					<e:ColorInput ui:field="fontColor"></e:ColorInput>
+
+
+				</g:HorizontalPanel>
+			</g:FlowPanel>
+			<g:FlowPanel>
+				<g:HorizontalPanel styleName="{style.trainingModePanel}">
+					<g:Label>Fixations:</g:Label>
+					<g:ListBox height="20px" ui:field="fixations">
+						<g:item value='1'>
+							1
+						</g:item>
+						<g:item value='2'>
+							2
+						</g:item>
+						<g:item value='3'>
+							3
+						</g:item>
+						<g:item value='4'>
+							4
+						</g:item>
+					</g:ListBox>
+					<g:Label styleName="{style.leftPadding}" ui:field="fixationInterval"></g:Label>
+					<e:Button ui:field="fixationsIntervalIncrease"
+						groupPosition="LEFT" icon="{resources.iconPlus}"></e:Button>
+					<e:Button ui:field="fixationsIntervalDecrease"
+						groupPosition="RIGHT" icon="{resources.iconMinus}"></e:Button>
+					<g:Label styleName="{style.leftPadding}" ui:field="highlightLabel">Highlighter: </g:Label>
+					<e:ColorInput ui:field="highlightColor"></e:ColorInput>
+				</g:HorizontalPanel>
+			</g:FlowPanel>
+		</g:DeckPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

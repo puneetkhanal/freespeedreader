@@ -1,0 +1,156 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:c="urn:import:com.google.gwt.canvas.client"
+	xmlns:view="urn:import:com.freespeedreader.client.view" xmlns:e="urn:import:com.google.code.gwteyecandy">
+	<ui:style>
+		.important {
+		font-weight: bold;
+		}
+		.textArea{
+		height: 200px;
+		width: 600px;
+		font-weight: bold;
+		font-size:15px;
+		font-name: sans-serif;
+		}
+
+		.canvas{
+		border: solid 1px #000;
+		}
+
+		.topbuttons{
+		margin: 0px auto;
+		}
+		.rightLabel {
+		width: 100px;
+		color: #000;
+		font-weight: bold;
+		font-size:
+		15px;
+		}
+		.wpm {
+		width: 100px;
+		color: #000;
+		font-weight: bold;
+		font-size:
+		15px;
+		}
+		.remainingWords {
+		width: 300px;
+		color: #000;
+		font-weight: bold;
+		font-size:15px;
+		}
+		.spinner
+		{
+		}
+		.settingsPanel{
+		padding: 5px;
+		}
+
+		.settingsView{
+
+		}
+		.infoPanel{
+		background-color: #ADD8E6;
+		}
+		.menu{
+		background-color:#F9F9F9;
+		background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAYCAYAAAA7zJfaAAAAT0lEQVR42k3ENw4EIQAEwf7/P/ECBAibzCUbXAXFe0/ce8U557+9t1hriTmnGGN89d5Fa03UWkUp5SvnLFJKIsYoQgjCe//lnBPWWmGM0Q+rD1tjq+CFTgAAAABJRU5ErkJggg==);
+		background-position:50% 100%;
+		background-repeat:repeat no-repeat;
+		overflow:hidden;
+		padding:3px 3px 1px;
+		text-align:left;
+
+		}
+		.messagePanel{
+		background-color: #FFFF00;
+		font-weight: bold;
+		font-size:
+		15px;
+		text-align:center;
+		}
+
+		.frame{
+		height: 25px;
+		border: 0px;
+		}
+		.headerPanel{
+		padding: 10px;
+		background-image: -webkit-gradient(linear, left top,
+		right bottom, color-stop(0,
+		#FFFFFF), color-stop(1, #87CEFA));
+		background-image: -moz-linear-gradient(top left, #FFFFFF 0%, #87CEFA
+		100%);
+		}
+
+		.leftPadding{
+		padding-left: 10px;
+		}
+
+	</ui:style>
+	<ui:with
+		type="com.freespeedreader.client.resources.FreespeedreaderResources"
+		field="resources"></ui:with>
+	<g:ScrollPanel width="100%" height="100%">
+		<g:HTMLPanel>
+			<g:FlowPanel styleName="{style.headerPanel}">
+				<g:Image resource="{resources.iconLogo}" styleName="{style.spinner}" />
+				<g:Frame styleName="{style.frame}"
+					url="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2Ffreespeedreaderappspotcom%2F205590222914299&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=35"></g:Frame>
+			</g:FlowPanel>
+			<center>
+				<g:FlowPanel styleName="{style.settingsPanel}">
+					<g:VerticalPanel>
+						<g:FlowPanel styleName="{style.menu}">
+							<g:HorizontalPanel>
+								<g:Label>Mode :-</g:Label>
+								<g:RadioButton ui:field="speedTestMode" name="mode">Speed
+									Test</g:RadioButton>
+								<g:RadioButton ui:field="trainingMode" name="mode">Training</g:RadioButton>
+								<g:Label styleName="{style.leftPadding}">Dictionary :-</g:Label>
+								<g:RadioButton ui:field="wordnik" name="dictionary"
+									value="true">Popup</g:RadioButton>
+								<g:RadioButton ui:field="vocabulary" name="dictionary">Browser</g:RadioButton>
+							</g:HorizontalPanel>
+							<view:SettingsView styleName="{style.settingsView}"
+								ui:field="settingsView"></view:SettingsView>
+						</g:FlowPanel>
+						<g:FlowPanel styleName="{style.infoPanel}">
+							<g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE">
+								<g:Image width="30px" ui:field="image" resource="{resources.iconClock}"
+									styleName="{style.spinner}" />
+								<g:Label ui:field="timeLabel" styleName="{style.rightLabel}"></g:Label>
+								<g:Label ui:field="speedLabel" styleName="{style.wpm}"></g:Label>
+								<g:Label ui:field="remainingWordsLabel" styleName="{style.remainingWords}"></g:Label>
+							</g:HorizontalPanel>
+						</g:FlowPanel>
+						<g:Label styleName="{style.messagePanel}" ui:field="speedTestResultLabel"></g:Label>
+
+						<c:Canvas ui:field="canvas" styleName="{style.canvas}"></c:Canvas>
+					</g:VerticalPanel>
+					<g:HorizontalPanel horizontalAlignment="ALIGN_CENTER">
+						<g:PushButton ui:field='previousPage' enabled='true'>
+							<g:upFace image="{resources.iconPrevious}" />
+						</g:PushButton>
+						<g:PushButton ui:field='nextPage' enabled='true'>
+							<g:upFace image="{resources.iconNext}" />
+						</g:PushButton>
+						<g:PushButton ui:field='start' enabled='true'>
+							<g:upFace image="{resources.iconStart}" />
+						</g:PushButton>
+						<g:PushButton ui:field='pause' enabled='true'>
+							<g:upFace image="{resources.iconPause}" />
+						</g:PushButton>
+						<g:PushButton ui:field='stop' enabled='true'>
+							<g:upFace image="{resources.iconStop}" />
+						</g:PushButton>
+					</g:HorizontalPanel>
+				</g:FlowPanel>
+			</center>
+			<view:InfoView></view:InfoView>
+
+		</g:HTMLPanel>
+	</g:ScrollPanel>
+</ui:UiBinder> 

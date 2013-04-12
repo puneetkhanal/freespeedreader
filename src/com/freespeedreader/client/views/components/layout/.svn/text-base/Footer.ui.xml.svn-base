@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:l="urn:import:cc.catalysts.catcoder.client.views.components.layout"
+	xmlns:a="urn:import:com.google.gwt.dev.asm">
+	<ui:style>
+		.copyRight {
+			font-size: 12px;
+			padding: 10px 5px;
+		}
+	</ui:style>
+	<ui:with type="cc.catalysts.catcoder.client.resources.CcResources" field="resources"/>
+	<g:HTMLPanel>
+		<g:HTMLPanel styleName="{resources.catcoderCss.ccfooter}">
+			<g:HTML styleName="{style.copyRight}">@2011 <a href="http://www.catalysts.cc">Catalysts</a> </g:HTML>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 
